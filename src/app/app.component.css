@@ -1,0 +1,62 @@
+.spacer {
+    flex: 1;
+}
+
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+}
+
+.toolbar img {
+    margin: 0 16px;
+}
+
+.toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 16px;
+}
+
+.toolbar #twitter-logo:hover {
+    opacity: 0.8;
+}
+
+a,
+a:visited,
+a:hover {
+    color: #1976d2;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #125699; 
+}
+
+footer {
+    width: 100vw;
+    height: 20px;
+    position: fixed;
+    background-color: #1976d2;
+    color: white;
+    text-align: center;
+    bottom: 0px;
+    left: 0;
+    padding: 5px;
+    align-items: center;
+    line-height: 20px;
+}
+
+svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+}

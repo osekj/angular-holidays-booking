@@ -1,0 +1,104 @@
+<div class="content" role="main">
+
+    <div id="search-content">
+      <div id="destinations">
+        <p class="slogan-text">
+          Not sure where to go? Choose one of the regions!
+        </p>
+  
+        <div class="destiantion-option">
+          <a (click)="onProposedClick('Europe')">
+            <img
+            alt="Europe"
+            src="assets/img/europe.jpg"
+            />
+          </a>
+          Europe
+        </div>
+      
+        <div class="destiantion-option">
+          <a (click)="onProposedClick('Asia')">
+            <img
+            alt="Asia"
+            src="assets/img/asia.jpg"
+            />
+          </a>
+          South East Asia
+        </div>
+      
+        <div class="destiantion-option">
+          <a (click)="onProposedClick('USA')">
+            <img
+            alt="USA"
+            src="assets/img/usa.jpeg"
+            />
+          </a>
+          USA
+        </div>
+      
+        <div class="destiantion-option">
+          <a (click)="onProposedClick('South America')">
+            <img
+            alt="South America"
+            src="assets/img/south-america.jpeg"
+            />
+          </a>
+          South America
+        </div>
+      </div>
+  
+      <div id="custom-search"
+            fxLayout="row"
+            fxLayout.xs="column" 
+            fxFlexFill
+            fxLayoutAlign="center center"
+      >
+  
+        <form>
+          <label for="test">Where do you want to go</label>
+          <mat-form-field>
+            <mat-select>
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let destination of destinations" [value]="destination">
+                {{ destination.country }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <label for="test">Date of departure</label>
+          <input type="date" id="departure-time" name="departure-time" [min]="date"
+                  placeholder="dd-mm-yyyy">
+  
+          <label for="poeple-number">Number of people going</label>
+          <input name="people-number" type="number" min="1" max="10" step="1"/>
+  
+          <label for="days-stay">Preffered days of stay</label>
+          <input name="days-stay" type="number" min="4" max="30" step="1"/>
+  
+          <label for="test">Price range</label>
+          <div id="price-input">
+            <div id="from-price">
+              <label for="price-from" class="price-label">From</label>
+              <input name="price-from" type="number" min="300" max="20000" step="100"
+                      value="500"/>
+            </div>
+            <div id="to-price">
+              <label for="price-to" class="price-label">To</label>
+              <input name="price-to" type="number" min="300" max="20000" step="100"
+                      value="2000"/>
+            </div>
+          </div>
+  
+          <label>What do you want to do during your holidays</label>
+          <mat-form-field>
+            <mat-select>
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let type of types" [value]="type">
+                {{type}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button id="custom-search-button">Search</button>
+        </form>
+      </div>
+    </div>
