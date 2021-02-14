@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../userService'
 import { SearchRegionService } from '../searchRegionService'
+import { SearchFiltersService } from '../searchFiltersService'
+import { Router } from '@angular/router';
+import { MyFilter } from '../filter';
 
 @Component({
   selector: 'app-home',
@@ -8,28 +11,48 @@ import { SearchRegionService } from '../searchRegionService'
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
   isSearching: boolean;
   region: String;
-  constructor(public userService: UserService, public searchService: SearchRegionService) { }
+
+  country: string;
+  departure: Date;
+  people: number;
+  priceFrom: number;
+  priceTo: number;
+  days: number;
+  type: string;
+
+  filter: MyFilter;
+
+  constructor(public userService: UserService, 
+              public searchService: SearchRegionService,
+              public searchFiltersService: SearchFiltersService) { }
   
   onProposedClick(regionToSearch) {
     this.searchService.search(regionToSearch);
     this.userService.toggleSearching();
   }   
 
+  filtersSearch() {
+    this.filter = new MyFilter(this.country, this.departure, this.people, this.priceFrom,
+                                    this.priceTo, this.days, this.type);
+
+    this.searchFiltersService.applyFilters(this.filter);
+    this.userService.toggleSearching();
+  }
+
   destinations = [
-    {country: 'France'},
-    {country: 'Austria'},
-    {country: 'Spain'},
-    {country: 'Italy'},
-    {country: 'Vietnam'},
-    {country: 'Thailand'},
-    {country: 'Laos'},
-    {country: 'Bali'},
-    {country: 'USA'},
-    {country: 'Chile'},
-    {country: 'Brasil'}
+    'France',
+    'Austria',
+    'Spain',
+    'Italy',
+    'Vietnam',
+    'Thailand',
+    'Laos',
+    'Bali',
+    'USA',
+    'Chile',
+    'Brasil'
   ];
 
   types = [
@@ -43,6 +66,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.userService.cast.subscribe(data => this.isSearching = data);
     this.searchService.cast.subscribe(data => this.region = data);
+    this.searchFiltersService.cast.subscribe(data => this.filter = data);
   }
 
 }
