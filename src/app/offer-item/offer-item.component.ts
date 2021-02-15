@@ -14,6 +14,7 @@ export class OfferItemComponent implements OnInit {
   @Input() price: number;
   @Input() people: number;
   @Input() image: string;
+  @Input() description: string;
 
   constructor() {}
 

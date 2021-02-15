@@ -37,6 +37,7 @@
   }
 
   #search-content #destinations {
+      padding-top: 55px;
       display: flex;
       float: left;
       flex-direction: row;

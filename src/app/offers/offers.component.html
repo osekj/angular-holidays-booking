@@ -1,4 +1,4 @@
-<div id="content">
+<div id="content" *ngIf="!router.url.includes('/OfferItemDetailsComponent')">
     <!-- <div id="text" *ngIf="region!=''">Region: {{region}}</div> -->
     
     <div id="filters" *ngIf="(filter | json) != '{}'">
@@ -7,7 +7,7 @@
         <p>Departure date: {{filter.departure | date}}</p>
         <p>People number: {{filter.people}}</p>
         <p>Price from: {{filter.priceFrom}}</p>
-        <p>PriceTo: {{filter.priceTo}}</p>
+        <p>Price to: {{filter.priceTo}}</p>
         <p>Days: {{filter.days}}</p>
         <p>Type: {{filter.type}}</p>
     </div> 
@@ -18,13 +18,13 @@
     </div> 
 
     <div id="results">
-        <app-offer-item *ngFor="let offer of offers"
+        <app-offer-item *ngFor="let offer of offersToDisplay"
             [id]="offer.id" [offerName]="offer.offerName" [departureDate]="offer.departureDate"
             [people]="offer.people" [days]="offer.days" [price]="offer.price"
-            [image]="offer.image"
+            [image]="offer.image" [description]="offer.description"
         >
         </app-offer-item>
     </div>
-</div>
 
-<div id="button"><button (click)="goBackClick()">Go Back</button></div>
+    <div id="button"><button (click)="goBackClick()">Go Back</button></div>
+</div>

@@ -6,12 +6,12 @@
     margin-top: 100px;
     grid-gap: 10px;
     margin-right: auto;
-    overflow-y: auto;
 
     grid-template-areas: ". destination"
-                            "filters results";
+                            "filters results"
+                            "button button";
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 6% 1fr;
+    grid-template-rows: 6% 84% 10%;
 }
 
 #text {
@@ -26,10 +26,11 @@
 }
 
 #button {
+    grid-area: button;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    height: 8vh;
+    height: 7vh;
     width: 20vw;
 }
 
@@ -88,6 +89,7 @@ button:hover {
     grid-area: results;
     width: 100%;
     height: 100%;
+    overflow-y: auto;
 }
 
 #results:last-child {

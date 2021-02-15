@@ -38,10 +38,11 @@ export class HomeComponent implements OnInit {
   }   
 
   filtersSearch() {
-    if(this.form.invalid) {
-      alert("Invalid filter input");
-      return;
-    }
+    // Not needed for developing
+    // if(this.form.invalid) {
+    //   alert("Invalid filter input");
+    //   return;
+    // }
 
     this.filter = new MyFilter(this.country, this.departure, this.people, this.priceFrom,
                                     this.priceTo, this.days, this.type);

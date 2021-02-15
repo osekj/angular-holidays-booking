@@ -14,13 +14,15 @@ import { SearchRegionService } from './searchRegionService'
 import { SearchFiltersService } from './searchFiltersService'
 import { FormsModule }   from '@angular/forms';
 import { OfferItemComponent } from './offer-item/offer-item.component';
+import { OfferItemDetailsComponent } from './offer-item-details/offer-item-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     OffersComponent,
-    OfferItemComponent
+    OfferItemComponent,
+    OfferItemDetailsComponent
   ],
   imports: [
     BrowserModule,
