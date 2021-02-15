@@ -39,3 +39,11 @@ h1,
     margin: 0 !important;
     padding: 0;
   }
+
+svg#clouds {
+  position: fixed;
+  bottom: -160px;
+  left: -230px;
+  z-index: -10;
+  width: 1920px;
+}

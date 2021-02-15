@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../userService'
 import { SearchRegionService } from '../searchRegionService'
 import { SearchFiltersService } from '../searchFiltersService'
 import { Router } from '@angular/router';
 import { MyFilter } from '../filter';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,9 @@ import { MyFilter } from '../filter';
 export class HomeComponent implements OnInit {
   isSearching: boolean;
   region: String;
+
+  @ViewChild('searchForm')
+  form: NgForm;
 
   country: string;
   departure: Date;
@@ -34,6 +38,11 @@ export class HomeComponent implements OnInit {
   }   
 
   filtersSearch() {
+    if(this.form.invalid) {
+      alert("Invalid filter input");
+      return;
+    }
+
     this.filter = new MyFilter(this.country, this.departure, this.people, this.priceFrom,
                                     this.priceTo, this.days, this.type);
 

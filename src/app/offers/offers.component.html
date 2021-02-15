@@ -1,13 +1,30 @@
-<div id="text">{{region}}</div>
-<div id="button"><button (click)="goBackClick()">Go Back</button></div>
+<div id="content">
+    <!-- <div id="text" *ngIf="region!=''">Region: {{region}}</div> -->
+    
+    <div id="filters" *ngIf="(filter | json) != '{}'">
+        <h2>Filters</h2>
+        <p>Country: {{filter.country}}</p>
+        <p>Departure date: {{filter.departure | date}}</p>
+        <p>People number: {{filter.people}}</p>
+        <p>Price from: {{filter.priceFrom}}</p>
+        <p>PriceTo: {{filter.priceTo}}</p>
+        <p>Days: {{filter.days}}</p>
+        <p>Type: {{filter.type}}</p>
+    </div> 
 
-<div id="filters">
-    <p>Filters</p>
-    <p>Country: {{filter.country}}</p>
-    <p>Departure date: {{filter.departure}}</p>
-    <p>People number: {{filter.people}}</p>
-    <p>Price from: {{filter.priceFrom}}</p>
-    <p>PriceTo: {{filter.priceTo}}</p>
-    <p>Days: {{filter.days}}</p>
-    <p>Type: {{filter.type}}</p>
-</div> 
+    <div id="region" *ngIf="(filter | json) == '{}'">
+        <h2>Region</h2>
+        <h3 id="region-value">{{region}}</h3>
+    </div> 
+
+    <div id="results">
+        <app-offer-item *ngFor="let offer of offers"
+            [id]="offer.id" [offerName]="offer.offerName" [departureDate]="offer.departureDate"
+            [people]="offer.people" [days]="offer.days" [price]="offer.price"
+            [image]="offer.image"
+        >
+        </app-offer-item>
+    </div>
+</div>
+
+<div id="button"><button (click)="goBackClick()">Go Back</button></div>

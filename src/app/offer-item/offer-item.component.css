@@ -1,0 +1,46 @@
+.offer-item {
+    display: grid;
+    width: 100%;
+    height: 250px;
+
+    grid-template-areas: "image details";
+    grid-template-columns: 2fr 3fr;
+
+    margin-bottom: 10px;
+}
+
+.offer-image {
+    width: 100%;
+    height: 100%;
+}
+
+.offer-details {
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border: 1px solid lightgray;
+    border-left: none;;
+}
+
+.offer-details-info {
+    width: 80%;
+    height: 90%;
+    
+    margin-top: 2.5%;
+    margin-left: 10%;
+}
+
+.offer-details-info h3 {
+    border-bottom: 1px solid lightgray;
+}
+
+.offer-details-info button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
